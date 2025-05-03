@@ -105,11 +105,9 @@
 
         <p> ¿Tienes dudas? Llena el formulario o escríbenos al WhatsApp. </p> <br>
 
-        <form action="https://formspree.io/f/xyzweper" method="post" id="formulario"> <!-- Formulario para enviar datos a Formspree -->
+        <form action="https://formspree.io/f/xyzweper" method="post" id="formulario" > <!-- Formulario para enviar datos a Formspree -->
 
             <input type="text" name="_honey" style="display:none"> <!-- Honey pot para evitar spam -->
-
-            <input type="hidden" name="_redirect" value="/Angela-Web/gracias.html"> <!-- Redirección después de enviar el formulario -->
 
             <label for="nombre"> Nombre: </label> <!-- Etiqueta para el campo de nombre -->
             <input type="text" id="nombre" name="nombre" required placeholder=" Tu nombre">
@@ -127,13 +125,29 @@
 
         <script>
             const form = document.getElementById('formulario');
-            form.addEventListener('submit', function () {
-            setTimeout(() => {
-                window.location.href = "/Angela-Web/gracias.html";
-              }, 1000); // da tiempo a enviar antes de redirigir
+            form.addEventListener('submit', function (e) {
+              e.preventDefault(); // Previene el envío por defecto
+            const data = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: {
+                'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                window.location.href = 'gracias.html';
+                } else {
+                alert('Hubo un problema al enviar el formulario.');
+                }
+            }).catch(error => {
+                alert('Error en la conexión.');
+            });
             });
         </script>
-
+        
+        
+        
     </section>
 
     <footer>
