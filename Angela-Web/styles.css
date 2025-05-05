@@ -1,133 +1,236 @@
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%; /* base = 16px, 1rem = 16px */
+}
+.encabezado {
+    background-color: #083d5c; /* fondo oscuro similar al ejemplo */
+    padding: 15px 20px;
+    display: flex;} /* flexbox para alinear logo y nombre */
+
+.logo-nombre {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: auto;
+    height: 50px;
+    border-radius: 30%; /* círculo */
+    object-fit: cover;
+}
+
+.nombre-sitio {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+  /* Responsive para móviles */
+@media (max-width: 480px) {
+    .logo-nombre {
+      flex-direction: row; /* sigue en línea pero ajustado */
+    align-items: center;
+    }
+
+    .nombre-sitio {
+    font-size: 0.90rem;
+    }
+}
+
 
 body {
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: #333;
+    padding: 0;
 }
 
+/* Header */
 header {
     background-color: #0a2647;
     color: white;
-    padding: 50px;
+    padding: 3rem 1rem;
     text-align: center;
 }
 
-/* url('https://i.imgur.com/NiN80LN.jpg') center/cover no-repeat -  Para agregar una imagen  */
-
+/* Navigation */
 nav {
-    margin-top: 10px;
+    margin-top: 0.625rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a {
     color: white;
-    margin: 0 10px;
+    margin: 0 0.625rem;
     text-decoration: none;
     font-weight: bold;
 }
 
+/* Hero Section */
 .hero {
     background: #e0f7fa;
     color: #0a2647;
-    padding: 60px 20px;
+    padding: 4rem 1.25rem;
     text-align: center;
 }
 
-.hero h1 { font-size: 2em; margin-bottom: 20px; }
-.hero p { font-size: 1.2em; }
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+}
+
+.hero p {
+    font-size: 1.125rem;
+}
 
 .btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 20px;
+    margin-top: 1.25rem;
+    padding: 0.75rem 1.25rem;
     background-color: #2e8b57;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     text-decoration: none;
     font-weight: bold;
 }
 
+/* Section General */
 .section {
     background-color: #f4f4f4;
-    padding: 40px 20px;
+    padding: 2.5rem 1.25rem;
     text-align: center;
 }
 
 .section h2 {
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
     color: #0a2647;
 }
 
-.services, .benefits {
-    
+/* Cards Grid */
+.services,
+.benefits {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
+    gap: 1.875rem;
+    max-width: 62.5rem;
     margin: auto;
 }
 
+/* Cards */
 .card {
     background: #f4f4f4;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 1.5625rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
 }
 
+/* Contact */
 .contact {
     background-color: #e0f7fa;
 }
 
+/* Footer */
 footer {
     background-color: #0a2647;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 /* WhatsApp Floating Button */
-
 .whatsapp-float {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 1.25rem;
+    right: 1.25rem;
     z-index: 100;
 }
+
 .whatsapp-float img {
-    width: 60px;
-    height: 60px;
+    width: 3.75rem;
+    height: 3.75rem;
 }
 
 /* Form Styles */
 form {
-    max-width: 500px;
+    max-width: 31.25rem;
     margin: auto;
     text-align: left;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 6px;
+    padding: 0.625rem;
+    margin-bottom: 1.25rem;
+    border-radius: 0.375rem;
     border: 1px solid #ccc;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 button {
     background-color: #0a2647;
     color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 1em;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 
-@media (max-width: 600px) {
-    .hero h1 { font-size: 1.5em; }
-    nav { display: flex; flex-direction: column; }
-    nav a { margin: 5px 0; }
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        margin: 0 0.75rem;
+        display: inline-block; 
+    }
+
+    .services,
+    .benefits {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.625rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .section {
+        padding: 2rem 1rem;
+    }
+
+    form {
+        padding: 0 1rem;
+    }
 }
